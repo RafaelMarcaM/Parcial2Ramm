@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CpRamm
 {
-    public partial class Form1 : Form
+    public partial class FrmSerie : Form
     {
-        public Form1()
+        public FrmSerie()
         {
             InitializeComponent();
         }
