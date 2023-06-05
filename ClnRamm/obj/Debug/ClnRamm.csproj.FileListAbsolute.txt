@@ -1,0 +1,2 @@
+D:\Documentos\Universidad\Parcial2Ramm\ClnRamm\obj\Debug\ClnRamm.csproj.AssemblyReference.cache
+D:\Documentos\Universidad\Parcial2Ramm\ClnRamm\obj\Debug\ClnRamm.csproj.CoreCompileInputs.cache

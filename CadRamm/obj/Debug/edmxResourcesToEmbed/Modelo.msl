@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Parcial2RammModelStoreContainer" CdmEntityContainer="Parcial2RammEntities">
+    <EntitySetMapping Name="Serie">
+      <EntityTypeMapping TypeName="Parcial2RammModel.Serie">
+        <MappingFragment StoreEntitySet="Serie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="sinopsis" ColumnName="sinopsis" />
+          <ScalarProperty Name="director" ColumnName="director" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="fechaEstreno" ColumnName="fechaEstreno" />
+          <ScalarProperty Name="registroActivo" ColumnName="registroActivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="paSerieListar" FunctionName="Parcial2RammModel.Store.paSerieListar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Parcial2RammModel.paSerieListar_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="sinopsis" ColumnName="sinopsis" />
+          <ScalarProperty Name="director" ColumnName="director" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
