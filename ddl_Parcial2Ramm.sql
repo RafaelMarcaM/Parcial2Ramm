@@ -34,7 +34,7 @@ SELECT * FROM Producto;
 
 CREATE PROC paSerieListar @parametro VARCHAR(250)
 AS
-  SELECT id, titulo, sinopsis, director, duracion
+  SELECT id, titulo, sinopsis, director, duracion, fechaEstreno
   FROM Serie
   WHERE registroActivo=1 AND 
 		titulo+director LIKE '%'+REPLACE(@parametro,' ','%')+'%'
