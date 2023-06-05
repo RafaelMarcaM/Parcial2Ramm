@@ -45,6 +45,7 @@ namespace CpRamm
             esNuevo = true;
             Size = new Size(792, 550);
             txtTitulo.Focus();
+            limpiar();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -59,12 +60,13 @@ namespace CpRamm
             txtSinopsis.Text = serie.sinopsis;
             txtDirector.Text = serie.director;
             txtDuracion.Text = Convert.ToString(serie.duracion);
-            dtpFechaEstreno.MaxDate = serie.fechaEstreno;
+            dtpFechaEstreno.MinDate = serie.fechaEstreno;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Size = new Size(792, 386);
+            limpiar();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -81,10 +83,39 @@ namespace CpRamm
         {
             if(e.KeyChar == (char)Keys.Enter) listar();
         }
+        private bool validar()
+        {
+            bool esValido = true;
+            erpTitulo.SetError(txtTitulo, "");
+            erpSinopsis.SetError(txtSinopsis, "");
+            erpDirector.SetError(txtDirector, "");
+            erpDuracion.SetError(txtDuracion, "");
 
+            if (string.IsNullOrEmpty(txtTitulo.Text))
+            {
+                erpTitulo.SetError(txtTitulo, "El campo Titulo es obligatorio");
+                esValido = false;
+            }
+            if (string.IsNullOrEmpty(txtSinopsis.Text))
+            {
+                erpSinopsis.SetError(txtSinopsis, "El campo Sinopsis es obligatorio");
+                esValido = false;
+            }
+            if (string.IsNullOrEmpty(txtDirector.Text))
+            {
+                erpDirector.SetError(txtDirector, "El campo Director es obligatorio");
+                esValido = false;
+            }
+            if (string.IsNullOrEmpty(txtDuracion.Text))
+            {
+                erpDuracion.SetError(txtDuracion, "El campo Saldo es obligatorio");
+                esValido = false;
+            }            
+            return esValido;
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //if (validar())
+            if (validar())
             {
                 var serie = new Serie();
                 serie.titulo = txtTitulo.Text.Trim();
@@ -117,6 +148,23 @@ namespace CpRamm
             txtDirector.Text = string.Empty;
             txtDuracion.Text = string.Empty;
             dtpFechaEstreno.Text = string.Empty;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int index = dgvLista.CurrentCell.RowIndex;
+            int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
+            string titulo = dgvLista.Rows[index].Cells["titulo"].Value.ToString();
+            DialogResult dialog = MessageBox.Show($"¿Está seguro que desea dar de baja " +
+                $"el producto {titulo}?", "::: Parcial - Mensaje :::",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dialog == DialogResult.OK)
+            {
+                SerieCln.eliminar(id);
+                listar();
+                MessageBox.Show($"Producto dado de baja correctamente", "::: Parcial - Mensaje :::",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
