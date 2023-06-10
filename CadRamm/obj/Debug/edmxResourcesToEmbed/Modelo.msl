@@ -22,6 +22,7 @@
           <ScalarProperty Name="sinopsis" ColumnName="sinopsis" />
           <ScalarProperty Name="director" ColumnName="director" />
           <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="fechaEstreno" ColumnName="fechaEstreno" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -42,7 +42,7 @@
         <EntityContainer Name="Parcial2RammEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Serie" EntityType="Self.Serie" />
           <FunctionImport Name="paSerieListar" ReturnType="Collection(Parcial2RammModel.paSerieListar_Result)">
-          <Parameter Name="parametro" Mode="In" Type="String" />
+            <Parameter Name="parametro" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="paSerieListar_Result">
@@ -51,6 +51,7 @@
           <Property Type="String" Name="sinopsis" Nullable="false" MaxLength="5000" />
           <Property Type="String" Name="director" Nullable="false" MaxLength="100" />
           <Property Type="Int32" Name="duracion" Nullable="false" />
+          <Property Type="String" Name="fechaEstreno" Nullable="false" MaxLength="10" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -79,6 +80,7 @@
                 <ScalarProperty Name="sinopsis" ColumnName="sinopsis" />
                 <ScalarProperty Name="director" ColumnName="director" />
                 <ScalarProperty Name="duracion" ColumnName="duracion" />
+                <ScalarProperty Name="fechaEstreno" ColumnName="fechaEstreno" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

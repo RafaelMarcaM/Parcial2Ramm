@@ -24,5 +24,6 @@
     <Property Type="String" Name="sinopsis" Nullable="false" MaxLength="5000" />
     <Property Type="String" Name="director" Nullable="false" MaxLength="100" />
     <Property Type="Int32" Name="duracion" Nullable="false" />
+    <Property Type="String" Name="fechaEstreno" Nullable="false" MaxLength="10" />
   </ComplexType>
 </Schema>

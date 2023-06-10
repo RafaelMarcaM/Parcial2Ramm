@@ -35,7 +35,7 @@ namespace CpRamm
             dgvLista.Columns["sinopsis"].HeaderText = "Sinopsis";
             dgvLista.Columns["director"].HeaderText = "Director";
             dgvLista.Columns["duracion"].HeaderText = "Duración";
-            //dgvLista.Columns["fechaEstreno"].HeaderText = "Fecha de Estreno";
+            dgvLista.Columns["fechaEstreno"].HeaderText = "Fecha de Estreno";
             btnEditar.Enabled = series.Count > 0;
             btnEliminar.Enabled = series.Count > 0;
             if (series.Count > 0) dgvLista.Rows[0].Cells["titulo"].Selected = true;
@@ -60,7 +60,7 @@ namespace CpRamm
             txtSinopsis.Text = serie.sinopsis;
             txtDirector.Text = serie.director;
             txtDuracion.Text = Convert.ToString(serie.duracion);
-            dtpFechaEstreno.MinDate = serie.fechaEstreno;
+            dtpFechaEstreno.Value = serie.fechaEstreno;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

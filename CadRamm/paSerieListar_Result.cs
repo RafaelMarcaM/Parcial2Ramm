@@ -18,5 +18,6 @@ namespace CadRamm
         public string sinopsis { get; set; }
         public string director { get; set; }
         public int duracion { get; set; }
+        public string fechaEstreno { get; set; }
     }
 }
